@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-pink-700 flex items-center justify-center" style="height: 100vh;">
-      <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-form">
+    <div class="bg-pink-700 flex items-center justify-center min-h-screen">
+      <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-form" style="height: 800px;">
         <div class="text-center mb-6">
           <img src="../assets/logo.png" alt="Company Logo" class="mx-auto mb-4">
           <h1 class="text-4xl font-cursive mb-2">Laboratory Booking System</h1>
@@ -52,6 +52,7 @@
             <input type="text" class="form-input peer" id="purpose" placeholder=" " required>
             <label for="purpose" class="form-label">Purpose</label>
           </div>
+          <button type="submit" class="btn-next">Next</button>
         </form>
       </div>
     </div>
@@ -64,7 +65,7 @@
   </script>
   
   <style scoped>
- 
+  /* Scoped styles */
   .form-input {
     width: 100%;
     padding: 0.75rem;
@@ -86,7 +87,7 @@
     transition: all 0.2s;
   }
   
-  
+  /* Label positioning when input is focused or has content */
   .form-input:focus + .form-label,
   .form-input:not(:placeholder-shown) + .form-label,
   select.form-input:valid + .form-label {
@@ -96,7 +97,7 @@
     color: #000000;
   }
   
-  
+  /* Drop shadow for form wrapper */
   .shadow-form {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -104,7 +105,58 @@
   img {
     width: 32%;
   }
+  
+  /* Styles for the Next button */
+  .btn-next {
+    display: block;
+    padding: 0.57rem 1.5rem;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    background-color: #FF009C;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
 
+  }
+  
+  .btn-next:hover {
+    background-color: #e60082; /* Darker shade for hover effect */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .max-w-2xl {
+      padding: 1rem;
+    }
+  
+    .form-input {
+      padding: 0.5rem;
+    }
+  
+    .btn-next {
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-4xl {
+      font-size: 2.5rem;
+    }
+  
+    .text-xl {
+      font-size: 1.25rem;
+    }
+  
+    .btn-next {
+      width: 100%;
+    }
+  }
+
+  /* Adjusting the height of the form wrapper */
 
   </style>
   
