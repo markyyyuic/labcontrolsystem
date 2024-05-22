@@ -4,7 +4,7 @@ import bookingpage from './components/Bookingpage.vue';
 
 
 const routes = [
-    {path: '/booking', component: bookingpage}
+    {path: '/', component: bookingpage}
 ];
 
 
