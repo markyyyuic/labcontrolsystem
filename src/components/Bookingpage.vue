@@ -53,10 +53,12 @@
             <label for="purpose" class="form-label">Purpose</label>
           </div>
           <div class="flex justify-end">
+            <RouterLink to="/signup">
             <button type="submit" class="btn-next">
               Next
               <i class="fas fa-arrow-right ml-2"></i>
             </button>
+        </RouterLink>
           </div>
         </form>
       </div>
