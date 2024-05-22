@@ -52,7 +52,12 @@
             <input type="text" class="form-input peer" id="purpose" placeholder=" " required>
             <label for="purpose" class="form-label">Purpose</label>
           </div>
-          <button type="submit" class="btn-next">Next</button>
+          <div class="flex justify-end">
+            <button type="submit" class="btn-next">
+              Next
+              <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
         </form>
       </div>
     </div>
@@ -108,19 +113,18 @@
   
   /* Styles for the Next button */
   .btn-next {
-    display: block;
-    padding: 0.57rem 1.5rem;
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.60rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    text-align: center;
     color: #fff;
     background-color: #FF009C;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
     transition: background-color 0.2s;
-
   }
   
   .btn-next:hover {
@@ -153,10 +157,8 @@
   
     .btn-next {
       width: 100%;
+      justify-content: center;
     }
   }
-
-  /* Adjusting the height of the form wrapper */
-
   </style>
   

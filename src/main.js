@@ -6,6 +6,7 @@ import './style.css';
 
 
 import 'primevue/resources/themes/aura-light-green/theme.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 const app = createApp(App);

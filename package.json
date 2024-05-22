@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "primevue": "^3.52.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.2"
