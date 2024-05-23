@@ -43,48 +43,47 @@ export default {
 <style scoped>
 .signup-container {
   position: fixed;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #BC185B;
 }
 
 .form-wrappers {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: block;
+  width: 90%;
+  max-width: 600px;
   background: #FFFFFF;
-  height: 100%;
-  width: 45%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
 }
 
+.form-wrappers img {
+  width: 100%;
+  max-width: 100px;
+  margin: 0 auto;
+  display: block;
+}
+
 .form-wrappers h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #BC185B;
   font-family: 'Inter', sans-serif;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-wrappers p {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #0b0b0b;
   font-family: 'Inter', sans-serif;
   font-weight: bold;
-  margin-bottom: 2rem;
-}
-
-.form-wrappers img {
-  width: 25%;
-  margin: 0 auto;
-  margin-top: 20px;
-  display: block;
+  margin-bottom: 1.5rem;
 }
 
 .form-group {
@@ -103,7 +102,7 @@ export default {
 
 .form-label {
   position: absolute;
-  top: 0;
+  top: 0.5rem;
   left: 0.75rem;
   transform: translateY(-50%);
   background-color: #fff;
