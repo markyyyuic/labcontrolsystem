@@ -1,4 +1,7 @@
 <template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <div class="signup-container">
     <div class="form-wrappers">
       <img src="../assets/logo.png" alt="">
@@ -43,6 +46,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'SignupForm'
@@ -60,6 +64,7 @@ export default {
   justify-content: center;
   align-items: center;
   background: #BC185B;
+  font-family: 'Inter', sans-serif; /* Set font-family to Inter */
 }
 
 .form-wrappers {
@@ -68,6 +73,8 @@ export default {
   background: #FFFFFF;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
+  font-family: 'Inter', sans-serif; /* Set font-family to Inter */
+  font-weight: 400;
 }
 
 .form-wrappers img {
@@ -80,19 +87,20 @@ export default {
 .form-wrappers h1 {
   font-size: 2rem;
   color: #BC185B;
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   margin-bottom: 1rem;
+  font-family: 'Inter',sans-serif;
 }
 
 .form-wrappers p {
   text-align: center;
   font-size: 1rem;
   color: #0b0b0b;
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   margin-bottom: 1.5rem;
+  font-family: 'Inter',sans-serif;
+
 }
 
 .form-group {
@@ -118,6 +126,8 @@ export default {
   padding: 0 0.25rem;
   color: #666;
   transition: all 0.2s;
+  font-family: 'Inter',sans-serif;
+  font-weight: 400;
 }
 
 .form-input:focus + .form-label,
@@ -149,7 +159,6 @@ export default {
   text-align: center;
   font-size: 1rem;
   color: #0b0b0b;
-  font-family: 'Inter', sans-serif;
   font-weight: bold;
 }
 

@@ -1,4 +1,7 @@
 <template>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <div class="signup-container flex justify-end items-center h-screen w-screen bg-pink-700">
       <div class="form-wrapperss bg-white w-full max-w-lg shadow-lg p-10 h-full box-border absolute right-0 top-0 flex flex-col items-center">
         <img src="../assets/logo.png" alt="" class="w-1/4 mt-5">
