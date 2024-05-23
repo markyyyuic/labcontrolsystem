@@ -10,7 +10,7 @@
         
         <form class="w-full max-w-md">
           <div class="form-group relative mb-8">
-            <input type="email" id="email" class="form-input w-full py-4 px-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-pink-700" placeholder=" ">
+            <input type="email" id="email" class="form-input w-full py-4 px-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-black-700" placeholder=" ">
             <label for="email" class="form-label absolute top-0 left-4 transform -translate-y-1/2 bg-white px-2 text-lg text-gray-600 transition-all">
               <i class="pi pi-envelope"></i> Email
             </label>
