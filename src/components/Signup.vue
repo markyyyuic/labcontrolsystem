@@ -54,6 +54,13 @@ export default {
 </script>
 
 <style scoped>
+html,
+body,
+#app {
+  font-family: 'Inter', sans-serif;
+}
+
+
 .signup-container {
   position: fixed;
   top: 0;
@@ -64,7 +71,6 @@ export default {
   justify-content: center;
   align-items: center;
   background: #BC185B;
-  font-family: 'Inter', sans-serif; /* Set font-family to Inter */
 }
 
 .form-wrappers {
@@ -85,7 +91,7 @@ export default {
 }
 
 .form-wrappers h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #BC185B;
   font-weight: 600;
   text-align: center;
