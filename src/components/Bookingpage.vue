@@ -1,6 +1,6 @@
 <template>
   <div class="bg-pink-700 flex items-center justify-center min-h-screen">
-    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-form" style="height: 800px;">
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-form" style="height: auto;">
       <div class="text-center mb-6">
         <img src="../assets/logo.png" alt="Company Logo" class="mx-auto mb-4">
         <h1 class="text-4xl font-cursive text-pink-700 font-bold mb-2">Laboratory Booking System</h1>
@@ -40,14 +40,20 @@
           </select>
           <label for="lab-number" class="form-label">Laboratory Number</label>
         </div>
-        <div class="relative mb-4">
-          <input type="time" class="form-input peer" id="time-in" placeholder=" " required>
-          <label for="time-in" class="form-label">Time In</label>
+        <div class="flex flex-wrap -mx-2 mb-4">
+        <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+          <div class="relative">
+            <input type="time" class="form-input peer" id="time-in" placeholder=" " required>
+            <label for="time-in" class="form-label">Time In</label>
+          </div>
         </div>
-        <div class="relative mb-4">
-          <input type="time" class="form-input peer" id="time-out" placeholder=" " required>
-          <label for="time-out" class="form-label">Time Out</label>
+        <div class="w-full md:w-1/2 px-2">
+          <div class="relative">
+            <input type="time" class="form-input peer" id="time-out" placeholder=" " required>
+            <label for="time-out" class="form-label">Time Out</label>
+          </div>
         </div>
+</div>
         <div class="relative mb-4">
           <input type="text" class="form-input peer" id="purpose" placeholder=" " required>
           <label for="purpose" class="form-label">Purpose</label>
@@ -129,7 +135,7 @@ img {
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background-color: #FF009C;
+  background-color: rgb(190 24 93 );
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
