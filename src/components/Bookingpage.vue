@@ -3,7 +3,7 @@
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-form" style="height: 800px;">
       <div class="text-center mb-6">
         <img src="../assets/logo.png" alt="Company Logo" class="mx-auto mb-4">
-        <h1 class="text-4xl font-cursive font-semibold mb-2">Laboratory Booking System</h1>
+        <h1 class="text-4xl font-cursive font-bold mb-2">Laboratory Booking System</h1>
         <h2 class="text-xl text-gray-700 mb-4">Online Booking</h2>
         <p class="text-gray-600">Please fill out the information below to complete your online reservation.</p>
       </div>
