@@ -29,7 +29,7 @@
         <button type="submit" class="btn-signup">Sign Up</button>
       </form>
 
-      <p class="login-text">Already have an account? <a href="#">Login</a>.</p>
+      <p class="login-text">Already have an account? <routerlink to="/login"><a href="#">Login</a>.</routerlink></p>
     </div>
   </div>
 </template>
