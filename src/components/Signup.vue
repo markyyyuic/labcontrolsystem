@@ -8,23 +8,33 @@
       <form>
         <div class="form-group">
           <input type="text" class="form-input" id="first-name" placeholder=" ">
-          <label for="first-name" class="form-label">First Name</label>
+          <label for="first-name" class="form-label">
+            <i class="pi pi-user"></i> First Name
+          </label>
         </div>
         <div class="form-group">
           <input type="text" class="form-input" id="last-name" placeholder=" ">
-          <label for="last-name" class="form-label">Last Name</label>
+          <label for="last-name" class="form-label">
+            <i class="pi pi-user"></i> Last Name
+          </label>
         </div>
         <div class="form-group">
           <input type="email" class="form-input" id="email" placeholder=" ">
-          <label for="email" class="form-label">Email</label>
+          <label for="email" class="form-label">
+            <i class="pi pi-envelope"></i> Email
+          </label>
         </div>
         <div class="form-group">
           <input type="password" class="form-input" id="password" placeholder=" ">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">
+            <i class="pi pi-lock"></i> Password
+          </label>
         </div>
         <div class="form-group">
           <input type="password" class="form-input" id="confirm-password" placeholder=" ">
-          <label for="confirm-password" class="form-label">Confirm Password</label>
+          <label for="confirm-password" class="form-label">
+            <i class="pi pi-lock"></i> Confirm Password
+          </label>
         </div>
         <button type="submit" class="btn-signup">Sign Up</button>
       </form>
@@ -33,7 +43,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'SignupForm'
