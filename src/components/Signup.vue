@@ -42,21 +42,24 @@ export default {
 
 <style scoped>
 .signup-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   background: #BC185B;
 }
 
 .form-wrappers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
   background: #FFFFFF;
+  height: 100%;
   width: 45%;
-  max-width: 600px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  box-sizing: border-box;
 }
 
 .form-wrappers h1 {
@@ -149,32 +152,5 @@ export default {
 
 .login-text a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .form-wrappers {
-    width: 80%;
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .form-wrappers {
-    width: 95%;
-    padding: 1rem;
-  }
-
-  .form-wrappers h1 {
-    font-size: 2rem;
-  }
-
-  .form-wrappers p {
-    font-size: 1rem;
-  }
-
-  .btn-signup {
-    padding: 0.5rem;
-    font-size: 0.875rem;
-  }
 }
 </style>
