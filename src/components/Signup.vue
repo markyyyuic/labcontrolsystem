@@ -29,7 +29,7 @@
         <button type="submit" class="btn-signup">Sign Up</button>
       </form>
 
-      <p class="login-text">Already have an account? <routerlink to="/login"><a href="#">Login</a>.</routerlink></p>
+      <p class="login-text">Already have an account? <RouterLink :to="{ path: '/login' }" class="text-pink-700 no-underline hover:underline">Login</RouterLink>.</p>
     </div>
   </div>
 </template>
