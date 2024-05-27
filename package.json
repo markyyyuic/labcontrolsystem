@@ -14,7 +14,8 @@
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vue3-timepicker": "^1.0.0-beta.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
