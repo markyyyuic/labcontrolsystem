@@ -23,14 +23,13 @@
         <h1 class="text-5xl font-bold text-pink-700">LABORATORY</h1>
         <h2 class="text-5xl font-normal text-black">BOOKING</h2>
         <p class="mt-4 text-lg text-gray-700">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          "Experience the convenience of scheduling laboratory appointments online through our efficient Laboratory Booking System."
         </p>
-        <p class="mt-4 text-lg text-gray-700">
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-        <button class="mt-6 px-6 py-3 bg-pink-700 text-white text-lg font-bold rounded-md hover:bg-pink-800 transition duration-200">
-          Book now
-        </button>
+        <router-link to="/bookingpage">
+          <button class="mt-6 px-6 py-3 bg-pink-700 text-white text-lg font-bold rounded-md hover:bg-pink-800 transition duration-200">
+            Book now
+          </button>
+        </router-link>
       </div>
       <div class="mt-10 md:mt-0 flex-1 flex justify-center items-center md:justify-end">
         <img src="../assets/Landingpage.png" alt="Laboratory Booking" class="max-w-full h-auto object-contain">
@@ -40,8 +39,13 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
   name: "LandingPage",
+  components: {
+    RouterLink
+  },
   data() {
     return {
       showNav: false
