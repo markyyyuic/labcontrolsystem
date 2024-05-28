@@ -15,7 +15,7 @@
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
     "toast": "^0.5.4",
-    "vue": "^3.4.21",
+    "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "vue3-timepicker": "^1.0.0-beta.2"
   },

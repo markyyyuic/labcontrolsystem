@@ -5,6 +5,7 @@ import loginpage from './components/Loginpage..vue'
 import Homepage from './components/Homepage.vue'
 import AccountRetrieval from './components/AccountRetrieval.vue'
 import resetpass from './components/PasswordReset.vue'
+import dashboard from './components/Dashboard.vue'
 
 
 
@@ -14,10 +15,10 @@ const routes = [
     {path: '/login', component: loginpage},
     {path: '/bookingpage', component: bookingpage},
     {path: '/retrieve', component: AccountRetrieval},
-    {path: '/changepass', component: resetpass}
-];
+    {path: '/changepass', component: resetpass},
+    {path: '/maindashboard', component: dashboard},
 
-
+]
 
 const router = createRouter({
     history: createWebHistory(),
