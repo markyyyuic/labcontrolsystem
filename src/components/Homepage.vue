@@ -12,7 +12,7 @@
       <!-- Navigation Links -->
       <nav :class="{'hidden': !showNav, 'flex': showNav, 'flex-col': showNav}" class="md:flex flex-col md:flex-row md:items-center md:space-x-6 text-gray-700">
         <a href="#" class="hover:text-gray-900">Home</a>
-        <a href="#" class="hover:text-gray-900">About</a>
+        <a href="#" class="hover:text-gray-900">Login</a>
         <a href="#" class="hover:text-gray-900">Contact Us</a>
       </nav>
     </header>

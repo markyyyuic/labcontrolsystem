@@ -8,63 +8,61 @@
         <p class="text-gray-600">Please fill out the information below to complete your online reservation.</p>
       </div>
       
-      <form>
+      <form @submit.prevent="submitForm">
         <div class="flex flex-wrap -mx-2 mb-4">
           <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
             <div class="relative">
-              <input type="text" class="form-input peer" id="first-name" placeholder=" " required>
+              <input type="text" class="form-input peer" id="first-name" v-model="bookingFormData.firstName" placeholder=" " required>
               <label for="first-name" class="form-label">First Name*</label>
             </div>
           </div>
           <div class="w-full md:w-1/2 px-2">
             <div class="relative">
-              <input type="text" class="form-input peer" id="last-name" placeholder=" " required>
+              <input type="text" class="form-input peer" id="last-name" v-model="bookingFormData.lastName" placeholder=" " required>
               <label for="last-name" class="form-label">Last Name*</label>
             </div>
           </div>
         </div>
         <div class="relative mb-4">
-          <input type="number" class="form-input peer" id="uic-id" placeholder=" " required>
+          <input type="number" class="form-input peer" id="uic-id" v-model="bookingFormData.id" placeholder=" " required>
           <label for="uic-id" class="form-label">ID*</label>
         </div>
         <div class="relative mb-4">
-          <input type="email" class="form-input peer" id="email" placeholder=" " required>
+          <input type="email" class="form-input peer" id="email" v-model="bookingFormData.email" placeholder=" " required>
           <label for="email" class="form-label">Email Address</label>
         </div>
         <div class="relative mb-4">
-          <select class="form-input peer" id="lab-number" required>
+          <select class="form-input peer" id="lab-number" v-model="bookingFormData.room" required>
             <option value="" disabled selected></option>
             <option value="203">ROOM 203</option>
             <option value="204">ROOM 204</option>
             <option value="205">ROOM 205</option>
           </select>
-          <label for="lab-number" class="form-label">Laboratory Number</label>
+          <label for="lab-number" class="form-label">Available Rooms</label>
         </div>
         <div class="flex flex-wrap -mx-2 mb-4">
-        <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
-          <div class="relative">
-            <input type="time" class="form-input peer" id="time-in" placeholder=" " required>
-            <label for="time-in" class="form-label">Time In</label>
+          <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+            <div class="relative">
+              <input type="time" class="form-input peer" id="time-in" v-model="bookingFormData.timeIn" placeholder=" " required>
+              <label for="time-in" class="form-label">Time In</label>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 px-2">
+            <div class="relative">
+              <input type="time" class="form-input peer" id="time-out" v-model="bookingFormData.timeOut" placeholder=" " required>
+              <label for="time-out" class="form-label">Time Out</label>
+            </div>
           </div>
         </div>
-        <div class="w-full md:w-1/2 px-2">
-          <div class="relative">
-            <input type="time" class="form-input peer" id="time-out" placeholder=" " required>
-            <label for="time-out" class="form-label">Time Out</label>
-          </div>
-        </div>
-</div>
         <div class="relative mb-4">
-          <input type="text" class="form-input peer" id="purpose" placeholder=" " required>
+          <input type="text" class="form-input peer" id="purpose" v-model="bookingFormData.purpose" placeholder=" " required>
           <label for="purpose" class="form-label">Purpose</label>
         </div>
         <div class="flex justify-end">
-          <RouterLink to="/signup">
-            <button type="submit" class="btn-next">
-              Next
-              <i class="fas fa-arrow-right ml-2"></i>
-            </button>
-          </RouterLink>
+          <button type="submit" class="btn-next">
+            Next
+            <i class="fas fa-arrow-right ml-2"></i>
+          </button>
         </div>
       </form>
     </div>
@@ -73,7 +71,27 @@
 
 <script>
 export default {
-  name: 'BookingForm'
+  name: 'Bookingpage',
+  data() {
+    return {
+      bookingFormData: {
+        firstName: '',
+        lastName: '',
+        id: '',
+        email: '',
+        room: '',
+        timeIn: '',
+        timeOut: '',
+        purpose: ''
+      }
+    };
+  },
+  methods: {
+    submitForm() {
+      console.log('Booking Data:', this.bookingFormData); // Log booking data
+      this.$router.push({ name: 'checkout', query: { bookingData: JSON.stringify(this.bookingFormData) } });
+    }
+  }
 }
 </script>
 

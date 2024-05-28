@@ -1,68 +1,69 @@
 <template>
     <div class="dashboard font-sans">
-      <header class="header bg-gray-100 px-4 py-2 flex justify-between items-center">
-        <img src="../assets/logo.png" alt="Logo" class="logo text-xl font-bold w-24">
-        <nav class="nav">
-          <a href="#" class="mr-4 text-black">Home</a>
-          <a href="#" class="mr-4 text-black">Booking Request</a>
-          <a href="#" class="mr-4 text-black">Profile</a>
-          <a href="#" class="text-black">Log-out</a>
-        </nav>
-      </header>
+        <header class="header bg-gray-100 px-4 py-2 flex justify-between items-center">
+      <img src="../assets/logo.png" alt="Logo" class="logo text-xl font-bold w-24">
+      <nav class="nav">
+        <router-link to="/" class="mr-4 text-black">Home</router-link>
+        <router-link to="/bookings" class="mr-4 text-black">Bookings</router-link>
+        <router-link to="/profile" class="mr-4 text-black">Profile</router-link>
+        <router-link to="/logout" class="text-black">Log-out</router-link>
+      </nav>
+    </header>
       <main class="main-content px-4 py-8">
         <section class="info-cards flex">
           <div class="card bg-gray-100 p-6 rounded-lg w-1/4 mr-4">
-            <h2 class="text-lg font-bold mb-4">Room Availability</h2>
+            <h2 class="text-lg font-bold mb-4 text-pink-700">Room Availability</h2>
             <ul>
               <li v-for="room in roomAvailability" :key="room.id" class="mb-2">{{ `Room ${room.number}: ${room.status}` }}</li>
             </ul>
           </div>
           <div class="card bg-gray-100 p-6 rounded-lg w-1/4 mr-4">
-            <h2 class="text-lg font-bold mb-4">Current Bookings</h2>
+            <h2 class="text-lg font-bold mb-4 text-pink-700">Current Bookings</h2>
             <ul>
               <li v-for="booking in currentBookings" :key="booking.id" class="mb-2">{{ `Room ${booking.room} | ${booking.date} | ${booking.time} | ${booking.name}` }}</li>
             </ul>
           </div>
           <div class="card bg-gray-100 p-6 rounded-lg w-1/4 mr-4">
-            <h2 class="text-lg font-bold mb-4">Cancelled Bookings</h2>
+            <h2 class="text-lg font-bold mb-4 text-pink-700">Cancelled Bookings</h2>
             <ul>
               <li v-for="booking in cancelledBookings" :key="booking.id" class="mb-2">{{ `Booking #${booking.id} | ${booking.date} | ${booking.reason}` }}</li>
             </ul>
           </div>
           <div class="card bg-gray-100 p-6 rounded-lg w-1/4">
-            <h2 class="text-lg font-bold mb-4">Booking Calendar</h2>
+            <h2 class="text-lg font-bold mb-4 text-pink-700">Booking Calendar</h2>
             <calendar />
           </div>
         </section>
         <section class="history mt-8">
-          <h2 class="text-lg font-bold mb-4">History</h2>
-          <table class="w-full">
-            <thead>
-              <tr class="bg-gray-200">
-                <th class="p-2">Booking ID</th>
-                <th class="p-2">Name</th>
-                <th class="p-2">Email Address</th>
-                <th class="p-2">Room</th>
-                <th class="p-2">Date</th>
-                <th class="p-2">Time</th>
-                <th class="p-2">Purpose</th>
-                <th class="p-2">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="record in historyRecords" :key="record.bookingId" class="bg-gray-100">
-                <td class="p-2">{{ record.bookingId }}</td>
-                <td class="p-2">{{ record.name }}</td>
-                <td class="p-2">{{ record.email }}</td>
-                <td class="p-2">{{ record.room }}</td>
-                <td class="p-2">{{ record.date }}</td>
-                <td class="p-2">{{ record.time }}</td>
-                <td class="p-2">{{ record.purpose }}</td>
-                <td class="p-2">{{ record.status }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+  <h2 class="text-lg font-bold mb-4 text-pink-700">History</h2>
+  <table class="w-full">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="p-2 text-left">Booking ID</th>
+        <th class="p-2 text-left">Name</th>
+        <th class="p-2 text-left">Email Address</th>
+        <th class="p-2 text-left">Room</th>
+        <th class="p-2 text-left">Date</th>
+        <th class="p-2 text-left">Time</th>
+        <th class="p-2 text-left">Purpose</th>
+        <th class="p-2 text-left">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="record in historyRecords" :key="record.bookingId" class="bg-gray-100">
+        <td class="p-2">{{ record.bookingId }}</td>
+        <td class="p-2">{{ record.name }}</td>
+        <td class="p-2">{{ record.email }}</td>
+        <td class="p-2">{{ record.room }}</td>
+        <td class="p-2">{{ record.date }}</td>
+        <td class="p-2">{{ record.time }}</td>
+        <td class="p-2">{{ record.purpose }}</td>
+        <td class="p-2">{{ record.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
       </main>
     </div>
   </template>
