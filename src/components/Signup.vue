@@ -1,40 +1,38 @@
 <template>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <PrimeVueToast ref="toast" />
   <div class="signup-container">
     <div class="form-wrappers">
       <img src="../assets/logo.png" alt="">
       <h1>Let's Start</h1>
       <p>Create an account.</p>
 
-      <form>
+      <form @submit.prevent="registerAdmin">
         <div class="form-group">
-          <input type="text" class="form-input" id="first-name" placeholder=" ">
+          <input v-model="formData.first_name" type="text" class="form-input" id="first-name" placeholder=" ">
           <label for="first-name" class="form-label">
             <i class="pi pi-user"></i> First Name
           </label>
         </div>
         <div class="form-group">
-          <input type="text" class="form-input" id="last-name" placeholder=" ">
+          <input v-model="formData.last_name" type="text" class="form-input" id="last-name" placeholder=" ">
           <label for="last-name" class="form-label">
             <i class="pi pi-user"></i> Last Name
           </label>
         </div>
         <div class="form-group">
-          <input type="email" class="form-input" id="email" placeholder=" ">
+          <input v-model="formData.email" type="email" class="form-input" id="email" placeholder=" ">
           <label for="email" class="form-label">
             <i class="pi pi-envelope"></i> Email
           </label>
         </div>
         <div class="form-group">
-          <input type="password" class="form-input" id="password" placeholder=" ">
+          <input v-model="formData.password" type="password" class="form-input" id="password" placeholder=" ">
           <label for="password" class="form-label">
             <i class="pi pi-lock"></i> Password
           </label>
         </div>
         <div class="form-group">
-          <input type="password" class="form-input" id="confirm-password" placeholder=" ">
+          <input v-model="formData.confirm_password" type="password" class="form-input" id="confirm-password" placeholder=" ">
           <label for="confirm-password" class="form-label">
             <i class="pi pi-lock"></i> Confirm Password
           </label>
@@ -48,9 +46,69 @@
 </template>
 
 <script>
+import axios from 'axios'; // Import axios for making HTTP requests
+import PrimeVueToast from 'primevue/toast';
+
 export default {
-  name: 'SignupForm'
-}
+  components: {
+    PrimeVueToast
+  },
+  name: 'SignupForm',
+  
+  data() {
+    return {
+      formData: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        confirm_password: ''
+      },
+    };
+  },
+  methods: {
+    async registerAdmin() {
+      const { password, image_profile } = this.formData;
+
+      // Check password constraints
+      if (!/[A-Z]/.test(password) || !/[^a-zA-Z0-9]/.test(password) || password.length < 8) {
+        this.$refs.toast.add({ severity: 'error', summary: 'Error', detail: 'Password must contain at least 1 uppercase letter, 1 special character, and be at least 8 characters long' });
+        return;
+      }
+
+      // Set image_profile to null if not provided
+      if (!image_profile) {
+        this.formData.image_profile = null;
+      }
+
+      try {
+        // Send form data to backend for registration
+        const response = await axios.post('http://127.0.0.1:8000/register', this.formData);
+        this.$refs.toast.add({ severity: 'success', summary: 'Success', detail: 'Admin registered successfully' });
+        console.log(response.data); // Log the response from the backend
+
+        // Reset form data after successful registration
+        this.formData = {
+          first_name: '',
+          last_name: '',
+          email: '',
+          password: '',
+          confirm_password: '',
+        };
+
+        // Redirect or display success message to the user
+      } catch (error) {
+        if (error.response.status === 400 && error.response.data.detail === "Email already in use") {
+          this.$refs.toast.add({ severity: 'error', summary: 'Error', detail: 'Email is already in use' });
+        } else {
+          this.$refs.toast.add({ severity: 'error', summary: 'Error', detail: 'Error registering admin: ' + error.response.data });
+        }
+        console.error('Error registering admin:', error.response.data);
+        // Handle error response from backend, e.g., display error message to the user
+      }
+    },
+  }
+};
 </script>
 
 <style scoped>

@@ -20,7 +20,7 @@
     <!-- Main Content -->
     <main class="flex flex-col md:flex-row flex-grow items-center md:justify-between bg-white py-10 px-6 md:px-12">
       <div class="max-w-md text-center md:text-left md:mr-10">
-        <h1 class="text-5xl font-bold text-pink-700">LABORATORY</h1>
+        <h1 class="text-6xl font-bold text-pink-700">LABORATORY</h1>
         <h2 class="text-5xl font-normal text-black">BOOKING</h2>
         <p class="mt-4 text-lg text-gray-700">
           "Experience the convenience of scheduling laboratory appointments online through our efficient Laboratory Booking System."

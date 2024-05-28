@@ -3,7 +3,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 import './style.css';
-import Timepicker from 'vue3-timepicker';
+import ToastService from 'primevue/toastservice';
+
+
 
 
 
@@ -15,4 +17,5 @@ import 'primeicons/primeicons.css'
 const app = createApp(App);
 app.use(router)
 app.use(PrimeVue)
+app.use(ToastService);
 app.mount('#app')
