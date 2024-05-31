@@ -71,6 +71,7 @@
 
 <script>
 export default {
+
   name: 'Bookingpage',
   data() {
     return {

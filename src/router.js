@@ -8,6 +8,8 @@ import AccountRetrieval from './components/AccountRetrieval.vue';
 import PasswordReset from './components/PasswordReset.vue';
 import Dashboard from './components/Dashboard.vue';
 import CheckoutForm from './components/CheckoutForm.vue';
+import Schedules from './components/Schedules.vue';
+import AdminProfile from './components/AdminProfile.vue';
 
 const routes = [
   { path: '/', component: Homepage },
@@ -16,7 +18,13 @@ const routes = [
   { path: '/bookingpage', component: Bookingpage },
   { path: '/retrieve', component: AccountRetrieval },
   { path: '/changepass', component: PasswordReset },
-  { path: '/maindashboard', component: Dashboard },
+  { path: '/maindashboard', component: Dashboard, meta: { requiresAuth: true } },
+  { path: '/schedules', component: Schedules },
+  {
+    path: '/adminprofile',
+    component: AdminProfile,
+    meta: { requiresAuth: true } // Add meta field to specify authentication requirement
+  },
   {
     path: '/checkout',
     name: 'checkout',
@@ -28,6 +36,16 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+// Navigation guard to check authentication status
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('access_token');
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/login'); // Redirect to login page if not authenticated
+  } else {
+    next(); // Continue navigation
+  }
 });
 
 export default router;

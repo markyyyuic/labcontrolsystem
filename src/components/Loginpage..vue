@@ -10,18 +10,18 @@
       
       <form @submit.prevent="loginAdmin" class="w-full max-w-md">
         <div class="form-group relative mb-8">
-          <input v-model="email" type="email" id="email" class="form-input w-full py-4 px-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-black-700" placeholder=" ">
+          <input v-model="email" type="email" id="email" class="form-input w-full py-4 px-4 h-10 border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-black-700" placeholder=" ">
           <label for="email" class="form-label absolute top-0 left-4 transform -translate-y-1/2 bg-white px-2 text-lg text-gray-600 transition-all">
             <i class="pi pi-envelope"></i> Email
           </label>
         </div>
         <div class="form-group relative mb-8">
-          <input v-model="password" type="password" id="password" class="form-input w-full py-4 px-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-pink-700" placeholder=" ">
+          <input v-model="password" type="password" id="password" class="form-input w-full py-4 px-4  h-10 border border-gray-300 rounded-lg text-lg focus:outline-none focus:border-pink-700" placeholder=" ">
           <label for="password" class="form-label absolute top-0 left-4 transform -translate-y-1/2 bg-white px-2 text-lg text-gray-600 transition-all">
             <i class="pi pi-lock"></i> Password
           </label>
         </div>
-        <button type="submit" class="btn-signup w-full py-4 text-xl font-bold text-white bg-pink-700 rounded-lg hover:bg-pink-800 transition-colors">Login</button>
+        <button type="submit" class="btn-signup w-full py-3 text-xl font-bold text-white bg-pink-700 rounded-lg hover:bg-pink-800 transition-colors">Login</button>
       </form>
 
       <div class="w-full max-w-md flex justify-between mt-4">
@@ -45,7 +45,6 @@ import Toast from 'primevue/toast';
 
 export default {
   name: 'LoginForm',
-  
   components: {
     Toast
   },
@@ -58,13 +57,22 @@ export default {
   methods: {
     async loginAdmin() {
       try {
-        const response = await axios.post('http://127.0.0.1:8000/login', {
-          email: this.email,
+        const response = await axios.post('http://127.0.0.1:8000/login', new URLSearchParams({
+          username: this.email,  // OAuth2PasswordRequestForm expects 'username'
           password: this.password,
+        }), {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
         });
-        this.$refs.toast.add({ severity: 'success', summary: 'Success', detail: response.data.message, life: 3000 });
+
+        // Store the token in localStorage
+        localStorage.setItem('access_token', response.data.access_token);
+
+        this.$refs.toast.add({ severity: 'success', summary: 'Success', detail: 'Login successful', life: 3000 });
+
         // Redirect to the desired page after successful login
-        this.$router.push('/bookingpage');
+        this.$router.push('/maindashboard');
       } catch (error) {
         if (error.response && error.response.status === 404) {
           this.$refs.toast.add({ severity: 'error', summary: 'Error', detail: 'Admin not found', life: 3000 });
@@ -76,7 +84,7 @@ export default {
       }
     },
   },
-};
+};  
 </script>
 
 <style scoped>
